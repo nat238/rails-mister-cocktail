@@ -1,2 +1,18 @@
-<h1>Cocktails</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);">
+  <div class="container">
+    <h1>Mr cocktail <strong>brings the</strong> bar <strong>to you</strong> !</h1>
+    <p>Enjoy your cocktail party</p>
+    <%= link_to "Create a cocktail", new_cocktail_path, class: "btn btn-flat", style: "color: white; font-weight: bold" %>
+   <!--  <a class="btn btn-flat" href="" style="color: white; font-weight: bold;">Create a cocktail</a> -->
+  </div>
+</div>
+<div class="container">
+  <div class="cards">
+    <% @cocktails.each do |cocktail| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?cocktail)">
+        <%= link_to cocktail.name, cocktail_path(cocktail) %>
+      </div>
+    <% end %>
+  </div>
+</div>
 

@@ -1,5 +1,19 @@
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div style="height: 75vh;">
+  <h1><%= @cocktail.name %></h1>
+    <% @cocktail.doses.each do |dose| %>
+
+      <div>
+        <div><%="#{dose.ingredient.name} #{dose.description}" %></div>
+      </div>
+    <% end %>
+
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description, label: "Quantity", collection: ["4cl", "5cl", "10cl", "15cl", "25cl"] %>
+    <%= f.association :ingredient %>
+    <%= f.button :submit, 'Add' %>
+  <% end %>
+  <%= link_to "back", cocktail_path(params[:cocktail_id]) %>
+  </div>
+</div>
+
